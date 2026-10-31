@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pen</title>
+  </head>
+  <body>
+    <!-- 3-1. 동시 다형성: 동일한 카드 컴포넌트가 넓은 본문과 좁은 사이드바에서 각각 다르게 변신 -->
+    <div class="box">
+      <h3 class="title">3-1. 컨테이너 쿼리를 통한 동시 다형성 (공간 반응형)</h3>
+      <p class="desc">
+        브라우저 창 크기를 줄이지 마세요! 좌측의 넓은 본문 영역과 우측의 좁은
+        사이드바 영역에 <strong>완전히 똑같은 HTML 구조의 카드</strong>가
+        들어있지만, 컨테이너 쿼리 덕분에 한 화면 안에서 각각
+        <strong>가로형</strong>과 <strong>세로형</strong>으로 동시에 다르게
+        렌더링됩니다.
+      </p>
+
+      <div class="dashboard-grid">
+        <!-- 넓은 본문 영역 (컨테이너 선언) -->
+        <div class="main-area cq-parent">
+          <div class="col-label">넓은 본문 (350px 초과 ➔ 가로형 유지)</div>
+          <div class="card-item">
+            <div class="card-thumb">THUMB</div>
+            <div class="card-info">
+              <h4>모던 웹 디자인 시스템</h4>
+              <p>
+                공간이 넉넉하므로 가로 배치 구조를 유지하여 시각적 정보를
+                효율적으로 전달합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 좁은 사이드바 영역 (컨테이너 선언) -->
+        <div class="sidebar-area cq-parent">
+          <div class="col-label">
+            좁은 사이드바 (350px 이하 ➔ 세로형 자동 전환)
+          </div>
+          <div class="card-item">
+            <div class="card-thumb">THUMB</div>
+            <div class="card-info">
+              <h4>모던 웹 디자인 시스템</h4>
+              <p>
+                공간이 좁아진 것을 스스로 감지해 세로형으로 자동 변신했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-2. 직계 부모가 아닌 조상 컨테이너 탐색 및 ch 단위 활용 -->
+    <div class="box">
+      <h3 class="title">
+        3-2. 조상 탐색(container-name)과 콘텐츠 중심(ch 단위) 설계
+      </h3>
+      <p class="desc">
+        이 아티클 박스는 <code>content-box</code>와 <code>ch</code> 단위를
+        사용하여 내부 텍스트가 가로로 45글자 미만으로 좁아지면 레이아웃이
+        꺾이도록 설계되었습니다. 중간에 여러 겹의 div가 있어도 지정한 조상
+        컨테이너(<code>article-box</code>)의 너비를 정확히 찾아 작동합니다.
+      </p>
+
+      <!-- 여러 겹의 wrapper 조상 -->
+      <div class="outer-wrapper">
+        <div class="inner-wrapper article-ancestor">
+          <article class="intrinsic-article">
+            <div class="article-header">
+              <span class="badge">EDITORIAL</span>
+              <h5>내재적(Intrinsic) 레이아웃의 본질</h5>
+            </div>
+            <div class="article-body">
+              <p>
+                픽셀 기반의 고정된 틀에서 벗어나, 순수 콘텐츠의 가독성 한계치(ch
+                단위)와 부모의 가용 공간에 스스로 적응하는 모던 CSS의
+                정수입니다.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

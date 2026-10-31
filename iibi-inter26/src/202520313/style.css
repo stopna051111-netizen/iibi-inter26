@@ -1,0 +1,751 @@
+/* =========================
+   1. BASIC
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  background: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+:root {
+  --purple: #aaa8f4;
+  --black: #000000;
+}
+
+/* =========================
+   2. POSTER GRID
+========================= */
+
+.poster {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  --padding: clamp(16px, 6.25vw, 90px);
+  --columns: 5;
+
+  padding: 40px var(--padding);
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  grid-auto-rows: calc((min(100vw, 1440px) - 2 * var(--padding)) / 5);
+
+  gap: 0;
+}
+
+/* =========================
+   3. CONTENT BOX
+========================= */
+
+.box {
+  background: var(--purple);
+  color: var(--black);
+
+  border: 1px solid var(--black);
+
+  padding: clamp(6px, 0.8vw, 12px);
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 나라 이름 */
+
+.box h2 {
+  font-size: clamp(17px, 2.1vw, 30px);
+  margin: 6px 0 7px;
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+/* 도시 이름 */
+
+.box h3 {
+  font-size: clamp(11px, 1.3vw, 19px);
+  margin: 6px 0 3px;
+  line-height: 1.13;
+  font-weight: 900;
+}
+
+/* 날짜 및 공연장 */
+
+.box p {
+  font-size: clamp(8px, 0.95vw, 14px);
+  margin: 0;
+  line-height: 1.18;
+  font-weight: 800;
+  overflow-wrap: break-word;
+}
+
+/* 번호 */
+
+.num {
+  position: absolute;
+  right: 7px;
+  top: 5px;
+
+  font-size: clamp(14px, 1.5vw, 21px);
+  font-weight: 900;
+}
+
+/* =========================
+   4. AIRPLANE
+========================= */
+
+.plane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  color: var(--purple);
+
+  min-width: 0;
+  min-height: 0;
+}
+
+.plane svg {
+  display: block;
+  width: 95%;
+  height: 95%;
+}
+
+/* =========================
+   5. HOME
+========================= */
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--black);
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.home svg {
+  display: block;
+  width: 65%;
+  height: 65%;
+}
+
+.home:hover {
+  background: #9694e8;
+}
+
+.home:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* =========================
+   6. INTRO
+========================= */
+
+.intro {
+  color: var(--purple);
+  min-width: 0;
+
+  text-align: right;
+  align-self: center;
+  justify-self: stretch;
+
+  line-height: 1.2;
+}
+
+.intro-desktop {
+  display: block;
+}
+
+.intro-tablet,
+.intro-mobile {
+  display: none;
+}
+
+/* =========================
+   7. TOUR TITLE
+========================= */
+
+.tour-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: clamp(22px, 3.2vw, 46px);
+  line-height: 1.1;
+}
+
+/* =========================
+   8. BOTTOM LOGO
+========================= */
+
+.box.logo {
+  display: grid;
+
+  grid-template-columns: 44% 1fr;
+  align-items: center;
+
+  column-gap: 7%;
+
+  padding: 3% 4%;
+
+  background: var(--purple);
+}
+
+/* 로고 이미지 공통 */
+
+.logo img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+}
+
+/* 왼쪽 KNOCK ON */
+
+.logo-knock {
+  width: 100%;
+  align-self: center;
+}
+
+/* 오른쪽 로고 묶음 */
+
+.logo-right {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: clamp(4px, 1vw, 14px);
+
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* 오른쪽 위 VOL.2 */
+
+.logo-right .logo-vol {
+  width: 49%;
+  height: auto;
+}
+
+/* 오른쪽 아래 BOYNEXTDOOR */
+
+.logo-right .logo-boy {
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   9. DESKTOP / LAPTOP
+========================= */
+
+@media (min-width: 1025px) {
+  .plane {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+
+  .plane svg {
+    width: 95%;
+    height: 95%;
+  }
+
+  .home {
+    grid-column: 5;
+    grid-row: 1;
+  }
+
+  .korea {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .intro {
+    grid-column: 2 / 4;
+    grid-row: 2;
+
+    font-size: clamp(13px, 1.55vw, 23px);
+    line-height: 1.2;
+
+    padding-right: 20px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .japan1 {
+    grid-column: 4;
+    grid-row: 2;
+  }
+
+  .japan2 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .japan3 {
+    grid-column: 4;
+    grid-row: 3;
+  }
+
+  .america1 {
+    grid-column: 5;
+    grid-row: 3;
+  }
+
+  .america2 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .america3 {
+    grid-column: 3;
+    grid-row: 4;
+  }
+
+  .america4 {
+    grid-column: 2;
+    grid-row: 5;
+  }
+
+  .tour-title {
+    grid-column: 4 / 6;
+    grid-row: 5;
+  }
+
+  .america5 {
+    grid-column: 4;
+    grid-row: 6;
+  }
+
+  .asia1 {
+    grid-column: 1;
+    grid-row: 7;
+  }
+
+  .asia2 {
+    grid-column: 3;
+    grid-row: 7;
+  }
+
+  .asia3 {
+    grid-column: 3;
+    grid-row: 8;
+  }
+
+  .logo {
+    grid-column: 1 / 6;
+    grid-row: 9;
+  }
+
+  .box.logo {
+    grid-template-columns: 44% 1fr;
+    column-gap: 7%;
+    padding: 3% 4%;
+  }
+
+  .logo-right .logo-vol {
+    width: 49%;
+  }
+
+  .logo-right .logo-boy {
+    width: 100%;
+  }
+}
+
+/* =========================
+   10. TABLET
+========================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .poster {
+    --columns: 4;
+    --padding: clamp(20px, 7vw, 66px);
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    grid-auto-rows: calc((100vw - 2 * var(--padding)) / 4);
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .plane {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .plane svg {
+    width: 95%;
+    height: 95%;
+  }
+
+  .home {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .home svg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .tour-title {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    font-size: clamp(20px, 3vw, 32px);
+  }
+
+  .korea {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .japan1 {
+    grid-column: 4;
+    grid-row: 2;
+  }
+
+  .japan2 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .japan3 {
+    grid-column: 4;
+    grid-row: 3;
+  }
+
+  .intro {
+    grid-column: 3;
+    grid-row: 3 / 5;
+
+    align-self: start;
+    justify-self: stretch;
+
+    padding: 12px 10px 0 4px;
+
+    font-size: clamp(14px, 2.2vw, 22px);
+    line-height: 1.2;
+
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .intro-desktop,
+  .intro-mobile {
+    display: none;
+  }
+
+  .intro-tablet {
+    display: block;
+  }
+
+  .america1 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .america2 {
+    grid-column: 2;
+    grid-row: 5;
+  }
+
+  .america3 {
+    grid-column: 3;
+    grid-row: 5;
+  }
+
+  .america4 {
+    grid-column: 1;
+    grid-row: 6;
+  }
+
+  .america5 {
+    grid-column: 3;
+    grid-row: 6;
+  }
+
+  .asia1 {
+    grid-column: 4;
+    grid-row: 6;
+  }
+
+  .asia2 {
+    grid-column: 2;
+    grid-row: 7;
+  }
+
+  .asia3 {
+    grid-column: 2;
+    grid-row: 8;
+  }
+
+  .logo {
+    grid-column: 1 / 5;
+    grid-row: 9;
+  }
+
+  /* 태블릿 정보 박스 */
+
+  .box {
+    padding: 10px;
+  }
+
+  .box h2 {
+    font-size: clamp(17px, 2.4vw, 25px);
+    margin: 12px 0 9px;
+    line-height: 1.1;
+  }
+
+  .box h3 {
+    font-size: clamp(11px, 1.7vw, 17px);
+    margin: 6px 0 3px;
+    line-height: 1.13;
+  }
+
+  .box p {
+    font-size: clamp(9px, 1.2vw, 12px);
+    line-height: 1.2;
+  }
+
+  .num {
+    font-size: 17px;
+  }
+
+  /* 태블릿 하단 로고 */
+
+  .box.logo {
+    grid-template-columns: 44% 1fr;
+    column-gap: 6%;
+    padding: 3% 4%;
+  }
+
+  .logo-right {
+    gap: clamp(4px, 0.8vw, 10px);
+  }
+
+  .logo-right .logo-vol {
+    width: 49%;
+  }
+
+  .logo-right .logo-boy {
+    width: 100%;
+  }
+}
+
+/* =========================
+   11. MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .poster {
+    --columns: 2;
+    --padding: clamp(12px, 8.7vw, 35px);
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-auto-rows: calc(((100vw - 2 * var(--padding)) / 2) * 0.72);
+
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  /* 비행기 */
+
+  .plane {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .plane svg {
+    width: 80%;
+    height: 95%;
+  }
+
+  /* 집 */
+
+  .home {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .home svg {
+    width: 55%;
+    height: 75%;
+  }
+
+  /* 연보라색 타이틀 */
+
+  .intro {
+    grid-column: 1;
+    grid-row: 2;
+
+    align-self: center;
+    justify-self: stretch;
+
+    padding-right: 8px;
+
+    font-size: clamp(14px, 3.6vw, 20px);
+    line-height: 1.15;
+
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .intro-desktop,
+  .intro-tablet {
+    display: none;
+  }
+
+  .intro-mobile {
+    display: block;
+  }
+
+  .korea {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .tour-title {
+    grid-column: 1;
+    grid-row: 3;
+
+    font-size: clamp(18px, 4vw, 30px);
+    padding: 10px;
+  }
+
+  .japan1 {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .japan2 {
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  .japan3 {
+    grid-column: 2;
+    grid-row: 5;
+  }
+
+  .america1 {
+    grid-column: 1;
+    grid-row: 6;
+  }
+
+  .america2 {
+    grid-column: 2;
+    grid-row: 7;
+  }
+
+  .america3 {
+    grid-column: 1;
+    grid-row: 8;
+  }
+
+  .america4 {
+    grid-column: 2;
+    grid-row: 8;
+  }
+
+  .america5 {
+    grid-column: 2;
+    grid-row: 9;
+  }
+
+  .asia1 {
+    grid-column: 1;
+    grid-row: 10;
+  }
+
+  .asia2 {
+    grid-column: 2;
+    grid-row: 11;
+  }
+
+  .asia3 {
+    grid-column: 1;
+    grid-row: 11;
+  }
+
+  .logo {
+    grid-column: 1 / 3;
+    grid-row: 12;
+  }
+
+  /* 모바일 정보 박스 */
+
+  .box {
+    padding: 7px;
+  }
+
+  .box h2 {
+    font-size: clamp(16px, 3.7vw, 22px);
+    margin: 7px 0 6px;
+    line-height: 1.1;
+  }
+
+  .box h3 {
+    font-size: clamp(10px, 2.35vw, 14px);
+    margin: 5px 0 2px;
+    line-height: 1.15;
+  }
+
+  .box p {
+    font-size: clamp(8px, 1.7vw, 11px);
+    line-height: 1.18;
+  }
+
+  .num {
+    font-size: clamp(14px, 3vw, 18px);
+    right: 6px;
+    top: 4px;
+  }
+
+  /* 모바일 하단 로고 */
+
+  .box.logo {
+    grid-template-columns: 44% 1fr;
+    column-gap: 5%;
+    padding: 3% 4%;
+  }
+
+  .logo-right {
+    gap: 4px;
+  }
+
+  .logo-right .logo-vol {
+    width: 49%;
+  }
+
+  .logo-right .logo-boy {
+    width: 100%;
+  }
+}

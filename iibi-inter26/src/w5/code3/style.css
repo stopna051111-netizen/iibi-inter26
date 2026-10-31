@@ -1,0 +1,95 @@
+/* =========================================
+   공통 세팅 및 재활용 스타일
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  padding: 24px;
+  background-color: #f5f6f8;
+}
+
+.box {
+  background-color: #fff;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  background-color: #f1f3f5;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+/* =========================================
+   1. 탈격자 흐름 (flex-wrap)
+   ========================================= */
+.tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  /* 자기 글자 길이(내용물)만큼만 너비를 가짐 */
+  background-color: #e3e8fc;
+  color: #3b5bdb;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* =========================================
+   2. 자식 주도적 밀어내기 (margin auto)
+   ========================================= */
+.dynamic-nav {
+  display: flex;
+  align-items: center; /* 수직 중앙만 맞춤. justify-content 안 씀! */
+  gap: 20px;
+  background-color: #212529;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffc107;
+  margin-right: 12px; /* 로고와 메뉴 사이만 조금 더 띄움 */
+}
+
+.menu-item {
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+/* 핵심 마법:
+   부모(dynamic-nav)는 아무 공간 분배를 안 했지만,
+   이 자식 요소 스스로가 "내 왼쪽에 남는 여백을 전부 밀어내라"고 선언함. */
+.push-right-btn {
+  margin-left: auto;
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}

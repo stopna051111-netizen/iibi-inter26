@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pen</title>
+    <!-- Noto Sans KR 폰트 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 1. 반응형 카드 갤러리 (상품 썸네일 리스트) -->
+    <div class="box">
+      <h3 class="title">1. 반응형 상품 갤러리 (auto-fit, minmax)</h3>
+      <div class="auto-grid">
+        <!-- 상품 8개 배치 (화면 크기에 따라 4열, 3열, 2열로 자동 줄바꿈 됨) -->
+        <div class="product-card">
+          <img src="" alt="상품 1" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">모던 데스크 램프</h4>
+            <p class="product-price">45,000원</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="" alt="상품 2" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">인체공학 오피스 체어</h4>
+            <p class="product-price">129,000원</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="" alt="상품 3" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">무선 기계식 키보드</h4>
+            <p class="product-price">89,000원</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="" alt="상품 4" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">알루미늄 노트북 스탠드</h4>
+            <p class="product-price">32,000원</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="" alt="상품 5" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">울트라와이드 모니터</h4>
+            <p class="product-price">450,000원</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="" alt="상품 6" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">블루투스 노이즈캔슬링 헤드폰</h4>
+            <p class="product-price">259,000원</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="" alt="상품 7" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">스마트 홈 스피커</h4>
+            <p class="product-price">75,000원</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="" alt="상품 8" class="product-img" />
+          <div class="product-info">
+            <h4 class="product-title">고속 무선 충전 패드</h4>
+            <p class="product-price">28,000원</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 벤토박스 / 대시보드 (복잡한 다중 병합) -->
+    <div class="box">
+      <h3 class="title">2. 복잡한 벤토박스 (Spanning & Dense 자동 채움)</h3>
+      <div class="bento-box">
+        <!-- 1~2줄 -->
+        <div class="bento-item box1">메인 통계 (2x2)</div>
+        <div class="bento-item box2">요약 위젯 (2x1)</div>
+        <div class="bento-item box3">미니 (1x1)</div>
+        <div class="bento-item box4">미니 (1x1)</div>
+
+        <!-- 3~4줄: 가운데 세로선을 가로지르는 비대칭 배치 -->
+        <div class="bento-item box5">세로 메뉴 (1x2)</div>
+        <div class="bento-item box6">핵심 차트 (2x2)</div>
+        <div class="bento-item box7">광고 배너 (1x2)</div>
+
+        <!-- 5줄 -->
+        <div class="bento-item box8">하단 와이드 데이터 테이블 (4x1)</div>
+      </div>
+    </div>
+
+    <!-- 3. 웹앱 셸 (App Shell) -->
+    <div class="box">
+      <h3 class="title">3. 웹앱 전체 골조 (App Shell)</h3>
+      <div class="app-shell">
+        <aside class="sidebar">사이드바 (고정 200px)</aside>
+        <header class="header">상단 헤더 (고정 60px)</header>
+        <main class="main">메인 콘텐츠 (남은 공간 1fr)</main>
+      </div>
+    </div>
+
+    <!-- 4. 복잡한 입력 폼 -->
+    <div class="box">
+      <h3 class="title">4. 복잡한 입력 폼 (6등분 격자 Form)</h3>
+      <form class="complex-form">
+        <div class="input-group half">
+          <label>성</label>
+          <input type="text" />
+        </div>
+        <div class="input-group half">
+          <label>이름</label>
+          <input type="text" />
+        </div>
+        <div class="input-group full">
+          <label>상세 주소</label>
+          <input type="text" />
+        </div>
+        <div class="input-group third">
+          <label>국가</label>
+          <input type="text" />
+        </div>
+        <div class="input-group third">
+          <label>도시</label>
+          <input type="text" />
+        </div>
+        <div class="input-group third">
+          <label>우편번호</label>
+          <input type="text" />
+        </div>
+      </form>
+    </div>
+
+    <!-- 5. 에디토리얼 레이아웃 (오버레이 및 텍스트 분산 배치) -->
+    <div class="box">
+      <h3 class="title">
+        5. 에디토리얼/포스터 레이아웃 (Grid 중첩 및 다단 텍스트 정렬)
+      </h3>
+      <div class="editorial-banner">
+        <!-- 배경 이미지 -->
+        <img src="" alt="건축물 흑백 배경" class="editorial-backdrop" />
+
+        <!-- 이미지 위에 겹쳐지는 텍스트 레이어 (내부 서브 그리드) -->
+        <div class="editorial-content">
+          <!-- 상단 메타 (1열) -->
+          <div class="meta-top">NO. 08 / 2026</div>
+
+          <!-- 중앙 거대 타이틀 (2열~4열 차지) -->
+          <h2 class="main-heading">
+            GRID
+            <br />
+            SYSTEMS
+          </h2>
+
+          <!-- 하단 텍스트 블록 1 (1열) -->
+          <div class="text-block block1">
+            <strong>레이아웃의 질서</strong>
+            <p>격자는 디자인에 논리적 구조와 시각적 명확성을 부여합니다.</p>
+          </div>
+
+          <!-- 하단 텍스트 블록 2 (2열) -->
+          <div class="text-block block2">
+            <strong>시각적 계층 구조</strong>
+            <p>정보의 중요도에 따라 2차원 공간을 엄격하게 분배합니다.</p>
+          </div>
+
+          <!-- 하단 메타/서명 (4열) -->
+          <div class="meta-bottom">
+            Raster
+            <br />
+            Design
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pen</title>
+    <!-- Noto Sans KR 폰트 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 1. 윗줄과 아랫줄의 독립 (Grid로는 절대 불가능한 태그 흐름) -->
+    <div class="box">
+      <h3 class="title">1. Grid가 못하는 '탈격자' 흐름 (flex-wrap)</h3>
+
+      <p class="desc">
+        Grid는 아랫줄 요소가 무조건 윗줄의 세로선에 맞춰져야 해서 글자 주변에
+        흉한 빈 공간이 생기거나 강제로 늘어납니다.
+        <br />
+        Flexbox는 윗줄과 아랫줄이 서로 전혀 영향을 주지 않고, 각자의 글자
+        길이만큼만 공간을 차지하며 물 흐르듯 떨어집니다.
+      </p>
+
+      <div class="tag-wrap">
+        <div class="tag">#프론트엔드</div>
+        <div class="tag">#UI</div>
+        <div class="tag">#Flexbox는</div>
+        <div class="tag">#윗줄과 아랫줄의 세로선이</div>
+        <div class="tag">#일치하지 않아도 됩니다.</div>
+        <div class="tag">#자연스러움</div>
+        <div class="tag">#CSS</div>
+      </div>
+    </div>
+
+    <!-- 2. 자식 주도적인 남은 공간 밀어내기 (개수를 몰라도 알아서 정렬) -->
+    <div class="box">
+      <h3 class="title">2. 자식 주도적 밀어내기 (margin-left: auto)</h3>
+
+      <p class="desc">
+        이 레이아웃을 Grid로 짜려면 부모에 "로고(auto), 메뉴1(auto),
+        메뉴2(auto)... 남은공간(1fr), 버튼(auto)"을 전부 미리 계산해서 적어줘야
+        합니다.
+        <br />
+        Flexbox는 부모는 아무것도 안 하고, 그냥 맨 우측 버튼 혼자 "나머지 공간
+        다 내꺼(margin-left: auto)"를 외치면 끝납니다. 메뉴가 몇 개 추가되든
+        완벽히 작동합니다.
+      </p>
+
+      <!-- 메뉴 개수가 가변적이어도 전혀 깨지지 않는 유연한 구조 -->
+      <div class="dynamic-nav">
+        <div class="logo">로고</div>
+        <div class="menu-item">메뉴 1</div>
+        <div class="menu-item">메뉴 2</div>
+        <div class="menu-item">메뉴 3</div>
+        <!-- 만약 여기에 메뉴 4, 5가 추가되어도 부모 코드는 수정할 필요가 없음 -->
+
+        <!-- 이 요소 혼자 왼쪽 여백을 다 밀어내어 우측 끝에 처박힘 -->
+        <button class="push-right-btn">로그인</button>
+      </div>
+    </div>
+  </body>
+</html>
